@@ -85,12 +85,23 @@ function reset(){
   }
   showAlert("info", "Cleared All Fields!")
 }
+
+//--------------------------------------------------------------------------------------------------------------------------------------------
+function reLoad() {
+  window.location.reload();
+}
+
+//--------------------------------------------------------------------------------------------------------------------------------------------
+function gm_authFailure() {
+  showAlert("danger", "Enter a Valid Key!");
+  setTimeout(reLoad, 3000);
+};
   
 //--------------------------------------------------------------------------------------------------------------------------------------------
 function loadMap() {
   let key = document.querySelector("#apiKey").value
   if (key === "" || key == null) {
-    showAlert("danger", "Please Enter A Key!");
+    showAlert("danger", "Please Enter a Key!");
     return 
   }
   // How to hide api key from CodingTrain??
@@ -140,7 +151,6 @@ function loadMap() {
 function fetchData(func, apiKey) { 
   let newTag, url;
   window.initMap = function() {
-    mapLoaded = true;
     func();
   }
   newTag = document.createElement("script");
@@ -200,7 +210,7 @@ function getElevation(points) {
   let elevaService = new google.maps.ElevationService();
   elevaService.getElevationForLocations(parameters, function (result, status) {
     if (status == "OK") {
-      console.log("adding to elevation array");
+      // console.log("adding to elevation array");
     for (let i = 0; i < result.length; i++) {
             elevationArray.push(result[i].elevation);
       }
