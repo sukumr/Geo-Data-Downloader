@@ -19,3 +19,11 @@ You can select **Start** and **Destination** locations either by clicking on the
   
 - **Reset:**  
   Reset the selections, inputs or generated data by using **Reset** button.
+
+## Demo
+### How to use
+![Demo](demo/demo.gif)
+### Error handling for API key input
+![API key error handling](demo/error1.gif)
+### Error handling using Regular Expression for input fields
+![Input field error handling](demo/error2.gif)
